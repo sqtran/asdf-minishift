@@ -2,7 +2,7 @@
 set -e
 
 #
-# https://github.com/kubernetes/minikube/releases/download/v1.9.2/minikube-linux-amd64
+# https://github.com/minishift/minishift/releases/download/v1.34.2/minishift-1.34.2-linux-amd64.tgz
 #
 
 install_minishift() {
@@ -25,17 +25,14 @@ install_minishift() {
         exit
     fi
 
-#https://github.com/minishift/minishift/releases/download/v1.34.2/minishift-1.34.2-linux-amd64.tgz
-
     download="https://github.com/minishift/minishift/releases/download/v${install_version}/minishift-${install_version}-${os}-amd64.tgz"
-    filename="${install_path}/bin/minishift"
+    #filename="${install_path}/bin/minishift"
 
     if [ ! -d "${install_path}/bin" ]; then
         mkdir -p "${install_path}/bin"
     fi
 
-    curl -fL# "${download}" | tar -xz
-#    chmod +x "${install_path}/bin/minishift"
+    curl -fL# "${download}" | tar -xz -C "${install_path}/bin/minishift
 }
 
 install_minishift $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
