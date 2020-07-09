@@ -26,13 +26,12 @@ install_minishift() {
     fi
 
     download="https://github.com/minishift/minishift/releases/download/v${install_version}/minishift-${install_version}-${os}-amd64.tgz"
-    #filename="${install_path}/bin/minishift"
 
     if [ ! -d "${install_path}/bin" ]; then
         mkdir -p "${install_path}/bin"
     fi
 
-    curl -fL# -N "${download}" | tar -xz -C "${install_path}/bin/minishift"
+    curl -fL# -N "${download}" | tar -xz -C "${install_path}/bin"
 }
 
 install_minishift $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
