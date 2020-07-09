@@ -34,8 +34,6 @@ jobs:
     - name: Install minishift and print version
       run: |
         . $HOME/asdf/asdf.sh
-#        asdf plugin add minishift $GITHUB_WORKSPACE
-#        asdf test install minishift latest
         asdf plugin test minishift https://github.com/sqtran/asdf-minishift minishift version
 
       env:
