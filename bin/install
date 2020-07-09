@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -e
+
+#
+# https://github.com/kubernetes/minikube/releases/download/v1.9.2/minikube-linux-amd64
+#
+
+install_minishift() {
+    local install_type=$1
+    local install_version=$2
+    local install_path=$3
+
+    case $(uname -s) in
+    Darwin) os="darwin" ;;
+    *) os="linux" ;;
+    esac
+
+    case $(uname -m) in
+    x86_64) arch="amd64" ;;
+    *) arch="other" ;;
+    esac
+
+    if [ "$arch" = "other" ]; then
+        echo "Unsupported architecture $(uname -m). Only x64 binaries are available."
+        exit
+    fi
+
+#https://github.com/minishift/minishift/releases/download/v1.34.2/minishift-1.34.2-linux-amd64.tgz
+
+    download="https://github.com/minishift/minishift/releases/download/v${install_version}/minishift-${install_version}-${os}-amd64.tgz"
+    filename="${install_path}/bin/minishift"
+
+    if [ ! -d "${install_path}/bin" ]; then
+        mkdir -p "${install_path}/bin"
+    fi
+
+    curl -fL# -o "${filename}" "${download}" | tar -xz
+    chmod +x "${install_path}/bin/minishift"
+}
+
+install_minishift $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
