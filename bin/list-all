@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
 cmd="curl --silent --location"
 releases_path="https://api.github.com/repos/minishift/minishift/releases"
