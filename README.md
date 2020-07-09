@@ -1,6 +1,6 @@
 # asdf-minishift
 
-[Minishift](https://github.com/minishift/minishift) plugin for [asdf](https://github.com/asdf-vm/asdf) version manager
+[Minishift](https://github.com/minishift/minishift) plugin for [asdf](https://github.com/asdf-vm/asdf) version manager.  This work is based off of the [minikube](https://github.com/alvarobp/asdf-minikube) plugin.
 
 ## Install
 
