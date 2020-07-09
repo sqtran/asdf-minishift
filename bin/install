@@ -34,8 +34,8 @@ install_minishift() {
         mkdir -p "${install_path}/bin"
     fi
 
-    curl -fL# -o "${filename}" "${download}" | tar -xz
-    chmod +x "${install_path}/bin/minishift"
+    curl -fL# "${download}" | tar -xz
+#    chmod +x "${install_path}/bin/minishift"
 }
 
 install_minishift $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
